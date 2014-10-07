@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,44 +14,33 @@
 
       <!-- Latest compiled and minified JavaScript -->
       <link src="bootstrap-3.2.0-dist/js/bootstrap.min.js">
-      <script src="js/sidebar.js"></script>
+      <script src="js/share.js"></script>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </head>
   <body>
-  <div class="container">
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1461719827434842&version=v2.0";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<div class="container">
       <div class="row">
           <p></p>
       </div>
       <div class="row">
           <div class="col-lg-2">
               <form role="form">
-									<button id="logout_button" type="button" class="btn btn-default btn-sm btn-block">
-										Logout
+								Paywall successfuly reported! Now share your story:
+								<div class="form-group" id="social_buttons">
+								</div>
+								<div class="form-group">
+									<button id="done_button" type="button" class="btn btn-default btn-sm btn-block">
+										Back
 									</button>
-									<div class="form-group" id="loading">
-										Loading...
-									</div>
-									<div id="loaded">
-										<div class="form-group">
-											<h3>Copies Found Online</h3>
-											<ul id="links">
-											</ul>
-										</div>
-										<div class="form-group">
-											<h3>Related Papers</h3>
-											<ul id="related_papers">
-											</ul>
-										</div>
-										<div class="form-group">
-											<h4>Still no luck?</h4>
-											<span id="author_email"></span>
-										</div>
-										<div class="report">
-											<h3>Annoyed?</h3>
-                      <button id="report_button" type="button" class="btn btn-default btn-sm btn-block">
-												Report
-											</button>
-										</div>
-									</div>
+								</div>
               </form>
           </div>
       </div>

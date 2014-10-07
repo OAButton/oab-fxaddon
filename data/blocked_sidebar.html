@@ -14,7 +14,7 @@
 
       <!-- Latest compiled and minified JavaScript -->
       <link src="bootstrap-3.2.0-dist/js/bootstrap.min.js">
-      <script src="js/sidebar.js"></script>
+      <script src="js/blocked.js"></script>
   </head>
   <body>
   <div class="container">
@@ -23,35 +23,15 @@
       </div>
       <div class="row">
           <div class="col-lg-2">
-              <form role="form">
-									<button id="logout_button" type="button" class="btn btn-default btn-sm btn-block">
-										Logout
-									</button>
-									<div class="form-group" id="loading">
-										Loading...
-									</div>
-									<div id="loaded">
-										<div class="form-group">
-											<h3>Copies Found Online</h3>
-											<ul id="links">
-											</ul>
-										</div>
-										<div class="form-group">
-											<h3>Related Papers</h3>
-											<ul id="related_papers">
-											</ul>
-										</div>
-										<div class="form-group">
-											<h4>Still no luck?</h4>
-											<span id="author_email"></span>
-										</div>
-										<div class="report">
-											<h3>Annoyed?</h3>
-                      <button id="report_button" type="button" class="btn btn-default btn-sm btn-block">
-												Report
-											</button>
-										</div>
-									</div>
+              <form role="form" id="signup-form">
+                  <div class="form-group">
+                      <div id="blocked_group" class="input-group">
+                          <textarea id="story" class="form-control" placeholder="Story"></textarea>
+                          <button id="report_button" type="button" class="btn btn-default btn-sm btn-block">
+                              Report!
+                          </button> 
+                      </div>
+                  </div>
               </form>
           </div>
       </div>
@@ -59,5 +39,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+  <script src="js/oab-ui.js"></script>
   </body>
 </html>

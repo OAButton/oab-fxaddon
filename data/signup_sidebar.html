@@ -14,6 +14,7 @@
 
       <!-- Latest compiled and minified JavaScript -->
       <link src="bootstrap-3.2.0-dist/js/bootstrap.min.js">
+      <script src="js/signup.js"></script>
   </head>
   <body>
   <div class="container">
@@ -25,20 +26,13 @@
               <form role="form" id="signup-form">
                   <div class="form-group">
                       <div id="register_group" class="input-group">
-                          <input id="email_address" type="text" class="form-control" placeholder="Email Address">
+                          <input id="email" type="text" class="form-control" placeholder="Email Address">
+                          <input id="password" type="password" class="form-control" placeholder="Password">
                           <button id="signup_button" type="button" class="btn btn-default btn-sm btn-block">
-                              Register Email address
+                              Signup
                           </button> 
-                      </div>
-                      <div class="input-group">
-                          <label for="loginSecret">Login Secret</label>
-                          <input type="text" class="form-control" placeholder="Login Secret" id="loginSecret">
-                          <span class="help-block">
-                              This secret is emailed to you after
-                              registering.
-                          </span>
-                          <button id="secret_button" type="button" class="btn btn-default btn-sm btn-block">
-                              Submit Secret
+                          <button id="login_button" type="button" class="btn btn-default btn-sm btn-block">
+                              Login
                           </button> 
                       </div>
                   </div>
