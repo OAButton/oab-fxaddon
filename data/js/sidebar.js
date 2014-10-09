@@ -9,6 +9,11 @@ window.onload = function() {
 	document.getElementById("logout_button").onclick = function() {
 		addon.port.emit("logout");
 	}
+
+	document.getElementById("report_button").onclick = function() {
+		var story = document.getElementById("story").value;
+		addon.port.emit("submit_blocked", story, true);
+	}
 }
 
 addon.port.on("info_obtained", function(links, related_papers, author_email) {
@@ -27,6 +32,10 @@ addon.port.on("info_obtained", function(links, related_papers, author_email) {
 	}
 	document.getElementById("related_papers").innerHTML = related_papers_html;
 
-	var author_email_html = "<a href='mailto:" + author_email + "'>Email author</a>";
-	document.getElementById("author_email").innerHTML = author_email_html;
+	document.getElementById("author_button").onclick = function() {
+		var story = document.getElementById("story").value;
+		addon.port.emit("submit_blocked", story, false);
+
+		window.location.href = "mailto:" + author_email + "?body=" + encodeURIComponent(story);
+	}
 });
