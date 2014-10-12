@@ -113,18 +113,24 @@ function showFailure() {
 	$(".social_share").show();
 }
 
-// Count number of characters in a textbox
-function textCounter(field,cnt, maxlimit) {         
-	var cntfield = document.getElementById(cnt);
-	// If too long, trim it
-	if (field.value.length > maxlimit) {
-		field.value = field.value.substring(0, maxlimit);
-// otherwise, update 'characters left' counter
-	// Otherwise update 'characters left' counter
-	} else {
-		cntfield.value = maxlimit - field.value.length;
-	}
-}
+$(document).ready(function() {
+	$("#no_access_button").prop("disabled", $("#story").val().length===0);
+	$("#story").on('keyup', function() {
+		var field_length = $("#story").val().length;
+		var limit = 85;
+		
+		// If value is too long, trim it
+		if (field_length > limit) {
+			$("#story").val($("#story").val().substring(0, limit));
+		} else {
+			// Otherwise update characters counter
+			$("#storylength").val(limit - field_length);
+		}
+
+		// If length is 0, disable wishlist submit button
+		$("#no_access_button").prop("disabled", field_length===0);
+	});
+});
 
 // Styling of links
 $(document).ready(function() {
