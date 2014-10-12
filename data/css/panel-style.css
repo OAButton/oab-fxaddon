@@ -17,3 +17,139 @@ table.standard-table td.header,.text-content table.standard-table th{
     padding:2px 8px 4px;
     font-weight:700
 }
+.logo{
+    width: 99%;
+}
+.logo img{
+    width: 100%;
+}
+.right{
+    float: right !important;
+    color: #777;
+}
+.italic{
+    font-style: italic;
+    font-size: 10px;
+    font-color: #212F3F;
+    margin-bottom: 5px;
+}
+.inline{
+    display: inline;
+}
+.access-left{
+    width: 49% !important;
+    margin-right: 1%;
+    float: left;
+    margin: 0px !important;
+    height: 75px;
+}
+.access-right{
+    width: 49% !important;
+    margin-left: 1%;
+    float: right;
+    margin: 0px !important;
+    height: 75px;
+}
+body{
+    color: #212F3F !important;
+}
+.twitter:hover{
+    background-color: #55ACEE;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    padding-left: 15px;
+    font-weight: bold;
+    padding-top: 8px;
+    margin-left: 10px;
+    float: left;
+}
+.facebook:hover{
+    background-color: #3b5998;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    padding-left: 15px;
+    font-weight: bold;
+    padding-top: 8px;
+    margin-left: 10px;
+    float: left;
+}
+.google:hover{
+    background-color: #166bec;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    padding-left: 15px;
+    font-weight: bold;
+    padding-top: 8px;
+    margin-left: 10px;
+    float: left;
+}
+.twitter{
+    background-color: #fff;
+    color: #55ACEE;
+    width: 40px;
+    margin-top: 7px;
+    height: 40px;
+    padding-left: 15px;
+    font-weight: bold;
+    padding-top: 8px;
+    margin-left: 10px;
+    float: left;
+}
+.facebook{
+    background-color: #fff;
+    color: #3b5998;
+    width: 40px;
+    margin-top: 7px;
+    height: 40px;
+    padding-left: 15px;
+    font-weight: bold;
+    padding-top: 8px;
+    margin-left: 10px;
+    float: left;
+}
+.google{
+    background-color: #fff;
+    color: #166bec;
+    width: 40px;
+    margin-top: 7px;
+    height: 40px;
+    padding-left: 15px;
+    font-weight: bold;
+    padding-top: 8px;
+    margin-left: 10px;
+    float: left;
+}
+.text{
+    margin-top: 15px;
+    float: left;
+    margin-left: 15px;
+}
+.social_share{
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo{
+    padding-bottom: 2px;
+    box-shadow: 0px 1px 0px 0px #eee;
+}
+.underlined{
+    border-bottom: 1px solid #428BCA;
+}
+.underlined div{
+    float: left;
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+}
+.rightt{
+    float: right;
+}
+#storylength{
+    border: 0px;
+}
+#signup_button, #login_button{
+    width: 50%;
+}

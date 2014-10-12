@@ -5,8 +5,10 @@
  */
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+@font-face { font-family: open-sans; src: url('OpenSans-Regular.ttf'); } 
+@font-face { font-family: open-sans; font-weight: bold; src: url('OpenSans-Bold.ttf');}
 html {
-  font-family: sans-serif;
+  font-family: open-sans;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -2313,6 +2315,7 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #212F3F;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -2357,7 +2360,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555;
+  color: #212F3F;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
@@ -2769,18 +2772,21 @@ fieldset[disabled] .btn {
   opacity: .65;
 }
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  color: #fff;
+  background-color: #F04717;
+  border-color: #F04717;
+  text-shadow: none !important;
+  font-weight: bold;
+  background-image: none !important;
 }
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  color: #fff;
+  background-color: #F05124;
+  border-color: #F05124;
 }
 .btn-default:active,
 .btn-default.active,
@@ -2802,12 +2808,12 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-  background-color: #fff;
-  border-color: #ccc;
+  background-color: #F05A30;
+  border-color: #F05A30;
 }
 .btn-default .badge {
   color: #fff;
-  background-color: #333;
+  background-color: #F05124;
 }
 .btn-primary {
   color: #fff;
@@ -3434,8 +3440,10 @@ tbody.collapse.in {
   position: relative;
   z-index: 2;
   float: left;
+  margin-bottom: 7px !important;
   width: 100%;
   margin-bottom: 0;
+  border-radius: 4px !important;
 }
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,

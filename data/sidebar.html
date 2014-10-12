@@ -22,35 +22,49 @@
           <p></p>
       </div>
       <div class="row">
-          <div class="col-lg-2">
+          <div class="col-lg-4 container">
               <form role="form">
-									<button id="logout_button" type="button" class="btn btn-default btn-sm btn-block">
-										Logout
-									</button>
+                    <div class="logo">
+                      <img src="images/logo.png">
+                    </div>
 									<div class="form-group" id="loading">
 										Loading...
 									</div>
 									<div id="loaded">
-										<div class="form-group">
-											<h3>Copies Found Online</h3>
-											<ul id="links">
-											</ul>
+										<div id="response">
 										</div>
 										<div class="form-group">
-											<h3>Related Papers</h3>
-											<ul id="related_papers">
-											</ul>
+                      <div>
+											 <h4><div>With the research I could...</div>
+                       <div class="right"><input readonly type="text" id='storylength' name="storylength" size="3" maxlength="3" value="85"></i><br/></div></h4>
+                      </div>
+											<textarea onKeyDown="textCounter(this, 'storylength', 85);" id="story" name="story" class="form-control scanwid" placeholder="E.g. “understand my disease”, “learn more about this aspect of culture”."></textarea>
+                      <h4 class="italic">Your story is important to email the author and more, <a href="http://openaccessbutton.org/firefox/why"> read why.</a> </h4>
+                      <div class="inline">
+                        <button id="access_button" type="button" class="btn btn-default access-left btn-sm btn-block">
+                          <h4>I got access!</h4>
+  											</button>
+                        <button id="no_access_button" type="button" class="btn btn-default access-right btn-sm btn-block">
+  												<h4>I didn't get Access!</h4>
+                          <p>Add to my wishlist</p>
+  											</button>
+                      </div>
 										</div>
-										<div class="form-group">
-											<h4>Still no luck?</h4>
-											<textarea id="story" class="form-control" placeholder="Story"></textarea>
-                      <button id="author_button" type="button" class="btn btn-default btn-sm btn-block">
-												Email paper author
-											</button>
-                      <button id="report_button" type="button" class="btn btn-default btn-sm btn-block">
-												Report to OAB
-											</button>
-										</div>
+                    <div class="social_share">
+                      <h4 class="row inline">
+                        <div class="text">Share your story on</div>
+                        <div class="twitter"><a href="#" id="twitter">t</a></div>
+                        <div class="facebook"><a href="#" id="facebook">f</a></div>
+                        <div class="google"><a href="#" id="google">g</a></div>
+                      </h4>
+                    </div>
+                    <div class="links">
+                      <div class="underlined"> 
+                        <a href="http://openaccessbutton.org/firefox/bug"><div class="left">File a bug </div></a>
+                        <a href="http://openaccessbutton.org/firefox/help"><div class="centralleft">Help </div></a>
+                        <a href="#" id="logout_button"><div class="rightt">Logout </div></a>
+                      </div>
+                    </div>
 									</div>
               </form>
           </div>
@@ -59,5 +73,25 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+  <script>
+    function textCounter(field,cnt, maxlimit) {         
+    var cntfield = document.getElementById(cnt) 
+    if (field.value.length > maxlimit) // if too long...trim it!
+    field.value = field.value.substring(0, maxlimit);
+    // otherwise, update 'characters left' counter
+    else
+    cntfield.value = maxlimit - field.value.length;
+    };
+    $(document).ready(function() {
+      $(".left").css("margin-right", ($(".underlined").width() - $(".left").width() - $(".rightt").width() - $(".centralright").width() - $(".centralleft").width() - 1)/3);
+      $(".centralleft").css("margin-right", (($(".underlined").width() - $(".left").width() - $(".rightt").width() - $(".centralright").width() - $(".centralleft").width() - 1)/3));
+      $(".centralright").css("margin-right", (($(".underlined").width() - $(".left").width() - $(".rightt").width() - $(".centralright").width() - $(".centralleft").width() - 1)/3));
+    });
+    $(window).resize(function() {
+      $(".left").css("margin-right", ($(".underlined").width() - $(".left").width() - $(".rightt").width() - $(".centralright").width() - $(".centralleft").width() - 1)/3);
+      $(".centralleft").css("margin-right", (($(".underlined").width() - $(".left").width() - $(".rightt").width() - $(".centralright").width() - $(".centralleft").width() - 1)/3));
+      $(".centralright").css("margin-right", (($(".underlined").width() - $(".left").width() - $(".rightt").width() - $(".centralright").width() - $(".centralleft").width() - 1)/3));
+    });
+  </script>
   </body>
 </html>
