@@ -13,6 +13,10 @@ window.onload = function() {
 	addon.port.emit("page_loaded");
 }
 
+addon.port.on("update_privacy_link", function(username) {
+	document.getElementById("privacy_link").setAttribute("href", "http://openaccessbutton.org/account/" + encodeURI(username));
+});
+
 addon.port.on("info_obtained", function(success, html, share_url) {
 	showLoaded();
 
