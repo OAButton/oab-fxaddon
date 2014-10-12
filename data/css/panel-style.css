@@ -152,7 +152,9 @@ body{
     border: 0px;
 }
 #signup_button, #login_button{
-    width: 50%;
+    width: 39%;
+    float: right;
+    padding: 7px;
 }
 .links{
     margin-top: 10px;
