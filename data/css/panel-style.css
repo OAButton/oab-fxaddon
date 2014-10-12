@@ -162,3 +162,6 @@ body{
 .success{
     margin-top: 10px;
 }
+#sidebar_drag_message {
+		display: none;
+}

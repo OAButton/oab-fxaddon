@@ -14,3 +14,7 @@ window.onload = function() {
 		window.open("http://openaccessbutton.org/firefox/forgot_password?email=" + encodeURI(email));
 	}
 }
+
+addon.port.on("show_sidebar_drag_message", function() {
+	$("#sidebar_drag_message").show();
+});
