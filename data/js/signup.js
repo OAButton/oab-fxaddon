@@ -9,6 +9,7 @@ window.onload = function() {
 		var password = document.getElementById("email").value;
 		addon.port.emit("login_click", email, password);
 	}
+	// Just redirect to a page on the website for now
 	document.getElementById("forgot_password").onclick = function() {
 		var email = document.getElementById("email").value;
 		window.open("http://openaccessbutton.org/firefox/forgot_password?email=" + encodeURI(email));
