@@ -43,6 +43,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: #F05124;
+  margin-bottom: 10px !important;
 }
 .btn-default:hover,
 .btn-default:focus {
