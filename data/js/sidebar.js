@@ -6,6 +6,8 @@ window.onload = function() {
 		addon.port.emit("logout");
 		return false;
 	}
+
+	addon.port.emit("page_loaded");
 }
 
 addon.port.on("info_obtained", function(success, html, share_url) {
@@ -37,4 +39,19 @@ addon.port.on("info_obtained", function(success, html, share_url) {
 	document.getElementById("no_access_button").onclick = function() {
 		addon.port.emit("didnt_get_access");
 	}
+});
+
+addon.port.on("check_email", function() {
+	// TODO: Why is this always null
+	var all_emails = document.documentElement.innerHTML.toLowerCase().match(/([a-z0-9_\.\-\+]+@[a-z0-9_\-]+(\.[a-z0-9_\-]+)+)/g);
+	var emails = [];
+
+	for (var i=0; i<all_emails.length; i++) {
+		var email = all_emails[i];
+		if (!((email.indexOf("@elsevier.com") > -1) || (email.indexOf("@nature.com") > -1) || (email.indexOf("@sciencemag.com") > -1) || (email.indexOf("@springer.com") > -1))) {
+			emails.push(email);
+		}
+	}
+
+	addon.port.emit("got_emails", emails);
 });
