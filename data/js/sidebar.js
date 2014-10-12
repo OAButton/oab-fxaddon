@@ -8,6 +8,7 @@ window.onload = function() {
 
 	document.getElementById("done_button").onclick = function() {
 		showLoaded();
+		addon.port.emit("close_sidebar");
 	}
 
 	addon.port.emit("page_loaded");
