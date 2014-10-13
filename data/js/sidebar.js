@@ -23,6 +23,11 @@ addon.port.on("info_obtained", function(success, html, share_url) {
 	showLoaded();
 
 	// The HTML we get back from the middleware API to show
+  // Justification for using innerHTML: open access is a vastly complicated ecosyste, and
+  // over the coming months and years we're going to start getting more and more data about
+  // papers. Rather than having to update the extension to display this each time we start 
+  // returning a new piece of data for each paper, instead we can just create a small HTML
+  // snippet server-side and insert it here.
 	document.getElementById("response").innerHTML = html;
 
 	// Twitter sharing button
