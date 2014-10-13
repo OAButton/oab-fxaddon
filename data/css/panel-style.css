@@ -168,3 +168,12 @@ body{
 #sidebar_drag_message {
 		display: none;
 }
+.closebutton{
+   background-color: #212F3F;
+   color: #fff;
+   border: 0px;
+   width: 100%;
+}
+.closebutton:hover{
+   background-color: #123359;
+}
