@@ -155,8 +155,7 @@ body{
     border: 0px;
 }
 #signup_button, #login_button{
-    width: 39%;
-    float: right;
+    width: 100%;
     padding: 7px;
 }
 .links{
@@ -176,4 +175,7 @@ body{
 }
 .closebutton:hover{
    background-color: #123359;
+}
+#register_group,#signin_group {
+	width: 100%;
 }
