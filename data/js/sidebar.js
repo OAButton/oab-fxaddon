@@ -11,6 +11,12 @@ window.onload = function() {
 		addon.port.emit("close_sidebar");
 	}
 
+	document.getElementById("scholar_notitle").onclick = function() {
+		var title = document.getElementById("user_title").value;
+		window.open("http://scholar.google.com/scholar?hl=en&q=" + encodeURI(title));
+		return false;
+	}
+
 	document.getElementById("info_obtained").style.display = 'none';
 	document.getElementById("info_not_obtained").style.display = 'none';
 
@@ -77,31 +83,34 @@ addon.port.on("info_obtained", function(success, data, share_url) {
 	});
 	document.getElementById("facebook").setAttribute("href", facebook_link);
 
-	// Click handlers for the two action buttons
-	document.getElementById("access_button").onclick = function() {
-		// Get the story the user's entered
-		var story = document.getElementById("story").value;	
-		// If the API didn't know the title and the user has to manually enter, get whatever they've entered
-		var title;
-		if (document.getElementById("title") == null) {
-			title = null;
-		} else {
-			title = document.getElementById("title").value;
+	if (success) {
+		document.getElementById("access_button").onclick = function() {
+			// Get the story the user's entered
+			var story = document.getElementById("story").value;	
+			// Submit all this back to the API and take the story off our watchlist
+			addon.port.emit("got_access", story, null);
 		}
-		// Submit all this back to the API and take the story off our watchlist
-		addon.port.emit("got_access", story, title);
-	}
 
-	document.getElementById("no_access_button").onclick = function() {
-		var story = document.getElementById("story").value;	
-		var title;
-		if (document.getElementById("title") == null) {
-			title = null;
-		} else {
-			title = document.getElementById("title").value;
+		document.getElementById("no_access_button").onclick = function() {
+			var story = document.getElementById("story").value;	
+			// Submit all this back to the API and put the story on our watchlist
+			addon.port.emit("didnt_get_access", story, null);
 		}
-		// Submit all this back to the API and put the story on our watchlist
-		addon.port.emit("didnt_get_access", story, title);
+	} else {
+		document.getElementById("access_button").onclick = function() {
+			// Get the story the user's entered
+			var story = document.getElementById("story").value;	
+			var title = document.getElementById("user_title").value;
+			// Submit all this back to the API and take the story off our watchlist
+			addon.port.emit("got_access", story, title);
+		}
+
+		document.getElementById("no_access_button").onclick = function() {
+			var story = document.getElementById("story").value;	
+			var title = document.getElementById("user_title").value;
+			// Submit all this back to the API and put the story on our watchlist
+			addon.port.emit("didnt_get_access", story, titld);
+		}
 	}
 });
 
