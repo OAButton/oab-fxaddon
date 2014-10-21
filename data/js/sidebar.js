@@ -45,6 +45,8 @@ addon.port.on("info_obtained", function(success, data, share_url) {
 
 		document.getElementById("full_text").setAttribute("href", metadata.fulltext_html);
 		document.getElementById("pdf").setAttribute("href", metadata.fulltext_pdf);
+
+		document.getElementById("scholar").setAttribute("href", "http://scholar.google.com/scholar?hl=en&q=" + encodeURI(metadata.title));
 	} else {
 		document.getElementById("info_obtained").style.display = 'none';
 		
