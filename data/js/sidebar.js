@@ -11,6 +11,9 @@ window.onload = function() {
 		addon.port.emit("close_sidebar");
 	}
 
+	document.getElementById("info_obtained").style.display = 'none';
+	document.getElementById("info_not_obtained").style.display = 'none';
+
 	addon.port.emit("page_loaded");
 }
 
@@ -19,16 +22,34 @@ addon.port.on("update_privacy_link", function(username) {
 });
 
 // When info about a page has been obtained, generate the HTML markup
-addon.port.on("info_obtained", function(success, html, share_url) {
+addon.port.on("info_obtained", function(success, data, share_url) {
 	showLoaded();
 
-	// The HTML we get back from the middleware API to show
-  // Justification for using innerHTML: open access is a vastly complicated ecosyste, and
-  // over the coming months and years we're going to start getting more and more data about
-  // papers. Rather than having to update the extension to display this each time we start 
-  // returning a new piece of data for each paper, instead we can just create a small HTML
-  // snippet server-side and insert it here.
-	document.getElementById("response").innerHTML = html;
+	if (success) {
+		document.getElementById("info_obtained").style.display = 'block';
+		document.getElementById("info_not_obtained").style.display = 'none';
+	
+		var metadata = data.contentmine.metadata;
+		document.getElementById("title").textContent = metadata.title;
+
+		var author = ""
+		// Produce string of format author1, author2, author3 & author4
+		if (metadata.author.length > 1) {
+			for (var i=0; i<metadata.author.length-2; i++) {
+				author += metadata.author[i] + ", ";
+			}
+		}
+		author += metadata.author[metadata.author.length-2] + " & ";
+		author += metadata.author[metadata.author.length-1];
+		document.getElementById("author").textContent = author;
+
+		document.getElementById("full_text").setAttribute("href", metadata.fulltext_html);
+		document.getElementById("pdf").setAttribute("href", metadata.fulltext_pdf);
+	} else {
+		document.getElementById("info_obtained").style.display = 'none';
+		
+		document.getElementById("info_not_obtained").style.display = 'block';
+	}
 
 	// Twitter sharing button
 	var twitter_link = "https://twitter.com/home?status=See%20what%20I%E2%80%99d%20do%20with%20access%20to%20this%20research%20paper%20at%20" + encodeURI(share_url) + "%20via%20@oa_button."
@@ -78,7 +99,7 @@ addon.port.on("info_obtained", function(success, html, share_url) {
 			title = document.getElementById("title").value;
 		}
 		// Submit all this back to the API and put the story on our watchlist
-		addon.port.emit("didnt_get_access");
+		addon.port.emit("didnt_get_access", story, title);
 	}
 });
 
