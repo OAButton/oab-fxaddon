@@ -2,9 +2,9 @@ default:
 	cfx xpi
 	zip -r oab-fxaddon-obfuscated-src.zip obfuscated/
 
-test:
+run:
 	cfx run
 
 clean:
-	rm oab-fxaddon.xpi
-	rm oab-fxaddon-obfuscated-src.zip
+	rm -f oab-fxaddon.xpi
+	rm -f oab-fxaddon-obfuscated-src.zip
