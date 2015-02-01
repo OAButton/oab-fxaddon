@@ -109,7 +109,7 @@ addon.port.on("info_obtained", function(success, data, share_url) {
 			var story = document.getElementById("story").value;	
 			var title = document.getElementById("user_title").value;
 			// Submit all this back to the API and put the story on our watchlist
-			addon.port.emit("didnt_get_access", story, titld);
+			addon.port.emit("didnt_get_access", story, title);
 		}
 	}
 });
